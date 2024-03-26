@@ -37,7 +37,7 @@ jobs:
         run: docker stop mlcooker || true && docker rm mlcooker || true
 
       - name: Run Docker container
-        run: docker run -d -p 8080:8082 --name mlcooker villain1039532/mlcooker:latest
+        run: docker run -d -p 3333:80 --name mlcooker villain1039532/mlcooker:latest
   
   # deploy:
   #   needs: build-and-push
