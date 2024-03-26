@@ -26,18 +26,18 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-          docker build -t villain1039532/gobackend:latest .
-          docker push villain1039532/gobackend:latest
+          docker build -t villain1039532/mlcooker:latest .
+          docker push villain1039532/mlcooker:latest
 
   deploy:
     needs: build-and-push
     runs-on: self-hosted
     steps:
       - name: Stop and remove existing container
-        run: docker stop gobackend || true && docker rm gobackend || true
+        run: docker stop mlcooker || true && docker rm mlcooker || true
 
       - name: Run Docker container
-        run: docker run -d -p 8080:8082 --name gobackend villain1039532/gobackend:latest
+        run: docker run -d -p 8080:8082 --name mlcooker villain1039532/mlcooker:latest
   
   # deploy:
   #   needs: build-and-push
