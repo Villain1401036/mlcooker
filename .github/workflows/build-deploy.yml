@@ -26,7 +26,7 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-          docker build -t villain1039532/mlcooker:latest .
+          docker build -t villain1039532/mlcooker:latest ./docker-images/.
           docker push villain1039532/mlcooker:latest
 
   deploy:
