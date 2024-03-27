@@ -119,10 +119,11 @@ def parse_resume(pdf_url=None):
         
         return res_dir
 
-def download_pdf_from_link(url, output_dir):
+def download_pdf_from_link(url, output_dir="./rawdata"):
             response = requests.get(url)
+            filename = url.split("/")[-1]
             if response.status_code == 200:
-                filename = os.path.join(output_dir, "resume.pdf")
+                filename = os.path.join(output_dir, filename)
                 with open(filename, "wb") as file:
                     file.write(response.content)
                 return filename
