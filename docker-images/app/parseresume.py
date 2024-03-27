@@ -6,6 +6,8 @@ from skills import skills_list
 import requests
 import os
 
+nlp = spacy.load('en_core_web_sm')
+
 def extract_text_from_pdf(pdf_path):
     reader = PdfReader(pdf_path)
     number_of_pages = len(reader.pages)
@@ -62,7 +64,6 @@ def extract_education_from_resume(text):
     return education
 
 def extract_name(resume_text):
-    nlp = spacy.load('en_core_web_sm')
     matcher = Matcher(nlp.vocab)
 
     # Define name patterns
@@ -133,7 +134,7 @@ def download_pdf_from_link(url, output_dir="./rawdata"):
         # Example usage:
         
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
     
     
-    print(parse_resume())
+#     print(parse_resume())
